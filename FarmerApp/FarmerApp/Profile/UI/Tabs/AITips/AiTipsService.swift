@@ -58,11 +58,15 @@ struct AITipsService {
         let list = plantNames.joined(separator: ", ")
         return """
         I have these plants in my garden: \(list). 
-        Suggest 5-10 personalized planting tips including:
+        Suggest 15 personalized planting tips including:
         - Good companion plants.
         - Care advice they all share.
         - One plant to consider removing.
         - One new plant to consider adding.
+        - What climate fertilizer to use.
+        - Best harvest times.
+        - Irrigation techniques
+        - Pest Control
         Format each tip as a separate bullet point.
         """
     }
