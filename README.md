@@ -10,8 +10,8 @@ Farmers can swipe through recommended plant pairings (companion planting), searc
 - **Tinder-Style Swiping:** Swipe right to accept, swipe left to reject plant pairings based on smart recommendations.
 - **Dynamic Search:** Instantly search and pick plants directly through a fast, clean search experience.
 - **Smart Home Dashboard:** View your accepted crops, success stats, and optimize your planting decisions.
-- **Tips** Tip of the day along with various AI POWERED planting tips about what plants to keep, remove, pair, and more based on selections.
-- **Watering** View to tell how much to water your plants based on temperature and past rainfall.
+- **Tips:** Tip of the day along with various AI POWERED planting tips about what plants to keep, remove, pair, and more based on selections.
+- **Watering:** View to tell how much to water your plants based on temperature and past rainfall.
 - **Profile Management:** Manage your account and reset your preferences anytime.
 - **Sustainable Focus:** Encourages sustainable and eco-friendly farming practices through optimized companion planting.
 
