@@ -66,3 +66,5 @@ To Kaggle and the open datasets community for providing the initial crop and pla
 ---
 
 🌾 **AgriMatch — Helping farmers grow smarter, together!**
+
+NOTICE: This is only to be used by Vibhun Naredla, Aryan Mathur, Samarth Chenumolu, Aditya Shah, and Ronav Gopal. **DO NOT PLAGARIZE.**
