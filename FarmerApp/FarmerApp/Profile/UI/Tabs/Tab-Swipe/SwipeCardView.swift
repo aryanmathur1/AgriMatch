@@ -17,7 +17,7 @@ struct SwipeCardView: View {
         VStack (spacing: 10, content: {
             ZStack {
                 // Full background image
-                AsyncImage(url: URL(string: imageName)) { phase in
+                AsyncImage(url: URL(string: imageName), transaction: Transaction(animation: .easeInOut)) { phase in
                     switch phase {
                     case .empty:
                         ProgressView()
@@ -30,21 +30,21 @@ struct SwipeCardView: View {
                             .clipped()
                             .cornerRadius(20)
                             .overlay(
-                                Color.green.opacity(clampedGreenOpacity)
-                                    .cornerRadius(20)
-                            )
-                            .overlay(
-                                Color.red.opacity(clampedRedOpacity)
-                                    .cornerRadius(20)
+                                ZStack {
+                                    Color.green.opacity(clampedGreenOpacity)
+                                    Color.red.opacity(clampedRedOpacity)
+                                }
+                                .cornerRadius(20)
                             )
                     case .failure(_):
-                        Color.red
+                        Color.gray
                             .frame(width: 300, height: 400)
                             .cornerRadius(20)
                     @unknown default:
                         EmptyView()
                     }
                 }
+
                 
                 // Text content with glass effect
                 VStack(spacing: 12) {
@@ -63,7 +63,7 @@ struct SwipeCardView: View {
                             .padding(.horizontal)
                     }
                     .padding()
-                    .background(.black)
+                    .background(.ultraThinMaterial)
                     .cornerRadius(16)
                     .padding()
                 }
@@ -111,11 +111,13 @@ struct SwipeCardView: View {
                     .onEnded { _ in
                         withAnimation(.easeInOut) {
                             if offset.width > swipeThreshold {
+                                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                                 offset = CGSize(width: 1000, height: 0)
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                     isSwiped = true
                                 }
                             } else if offset.width < -swipeThreshold {
+                                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                                 offset = CGSize(width: -1000, height: 0)
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                     isSwiped = true
@@ -126,7 +128,7 @@ struct SwipeCardView: View {
                         }
                     }
             )
-            .animation(.spring(response: 0.5, dampingFraction: 0.8), value: offset)
+            .animation(.spring(response: 0.35, dampingFraction: 0.7), value: offset)
             
             // Search button
             Button(action: {

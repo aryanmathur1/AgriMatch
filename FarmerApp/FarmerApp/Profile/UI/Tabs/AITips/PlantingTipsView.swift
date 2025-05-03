@@ -45,7 +45,7 @@ struct PlantingTipsView: View {
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 12).fill(colorScheme == .dark ? Color.black.opacity(0.2) : Color.gray.opacity(0.1)))
+                        .background(RoundedRectangle(cornerRadius: 12).fill(colorScheme == .dark ? Color.white.opacity(0.1) : Color.gray.opacity(0.1)))
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
                 
