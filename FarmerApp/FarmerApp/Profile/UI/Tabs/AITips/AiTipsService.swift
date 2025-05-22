@@ -13,7 +13,7 @@ struct AITipsService {
         
         let prompt = buildPrompt(from: plantNames)
 
-        // actual Cloudflare Worker URL
+        // cloudfare worker url so api key doesnt get leaked
         guard let url = URL(string: "https://agrimatch.aryanrajmathur.workers.dev") else {
             completion([])
             return

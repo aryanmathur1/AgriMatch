@@ -23,7 +23,7 @@ struct MainTabView: View {
                 }
                 .tag(1)
 
-            TipsView2(tabSelection: $tabSelection, showTabBar: $showTabBar, path: $path)
+            MainTipsView(tabSelection: $tabSelection, showTabBar: $showTabBar, path: $path)
                 .tag(2)
             SwipeView()
                 .tag(3)

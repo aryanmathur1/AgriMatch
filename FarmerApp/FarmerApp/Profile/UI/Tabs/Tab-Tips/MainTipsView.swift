@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
 
-struct TipsView2: View {
+struct MainTipsView: View {
 
     //MARK: - Properties
     @Binding private var tabSelection: Int
@@ -71,7 +71,7 @@ struct TipsView2: View {
 
 // MARK: - Nav Bar
 
-extension TipsView2 {
+extension MainTipsView {
     @ViewBuilder
     private func CreateLeftBar() -> some View {
         Button { print("toggleMenu") } label: {
@@ -99,7 +99,7 @@ extension TipsView2 {
 
 // MARK: - Content View
 
-extension TipsView2 {
+extension MainTipsView {
     @ViewBuilder
     private func CreateContentView() -> some View {
         VStack(spacing: 0) {
@@ -122,7 +122,7 @@ extension TipsView2 {
 
 // MARK: - Sub Views
 
-extension TipsView2 {
+extension MainTipsView {
     @ViewBuilder
     private func CreateBannerView() -> some View {
         BannerView(banners: dynamicBanners) { banner in
@@ -151,13 +151,13 @@ extension TipsView2 {
     @ViewBuilder
     private func CreateDailyTipsView() -> some View {
         TipsView()
-            .frame(maxHeight: 170)
+            .frame(maxHeight: 230)
     }
 }
 
 // MARK: - Firestore Fetching
 
-extension TipsView2 {
+extension MainTipsView {
     private func fetchAcceptedPlants() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
