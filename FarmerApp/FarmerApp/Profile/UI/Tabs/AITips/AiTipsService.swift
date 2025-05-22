@@ -12,14 +12,13 @@ struct AITipsService {
     func generatePlantingTips(from plantNames: [String], completion: @escaping ([String]) -> Void) {
         
         let prompt = buildPrompt(from: plantNames)
-        
-        let APIKeyGemini = GeminiAPI.GeminiAPIKey
-        
-        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+APIKeyGemini) else {
+
+        // actual Cloudflare Worker URL
+        guard let url = URL(string: "https://agrimatch.aryanrajmathur.workers.dev") else {
             completion([])
             return
         }
-        
+
         let requestBody: [String: Any] = [
             "contents": [
                 [
@@ -46,11 +45,11 @@ struct AITipsService {
                 completion([])
                 return
             }
-            
+
             // Split AI response into tips (assuming each tip is on its own line)
             let tips = generatedText.components(separatedBy: "\n").filter { !$0.isEmpty }
             completion(tips)
-            
+
         }.resume()
     }
     
@@ -71,3 +70,4 @@ struct AITipsService {
         """
     }
 }
+
